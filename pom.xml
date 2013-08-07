@@ -52,6 +52,31 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>scala-maven-plugin</artifactId>
+				<version>3.1.5</version>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<scalaVersion>2.9.2</scalaVersion>
+				</configuration>
+			</plugin>
+			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
@@ -187,6 +212,11 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.9.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec</groupId>
 			<artifactId>jboss-javaee-6.0</artifactId>
