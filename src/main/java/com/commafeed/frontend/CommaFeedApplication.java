@@ -1,20 +1,13 @@
 package com.commafeed.frontend;
 
-import javax.enterprise.inject.spi.BeanManager;
-import javax.inject.Inject;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.servlet.http.Cookie;
-
+import com.commafeed.backend.services.ApplicationPropertiesService;
+import com.commafeed.backend.services.ApplicationSettingsService;
+import com.commafeed.frontend.pages.*;
+import com.commafeed.frontend.utils.WicketUtils;
+import com.commafeed.frontend.utils.exception.DisplayExceptionPage;
 import lombok.extern.slf4j.Slf4j;
-
 import org.apache.commons.lang.StringUtils;
-import org.apache.wicket.Application;
-import org.apache.wicket.Component;
-import org.apache.wicket.IRequestCycleProvider;
-import org.apache.wicket.Page;
-import org.apache.wicket.RuntimeConfigurationType;
-import org.apache.wicket.Session;
+import org.apache.wicket.*;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.authentication.strategy.DefaultAuthenticationStrategy;
 import org.apache.wicket.authorization.Action;
@@ -32,28 +25,18 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.filter.JavaScriptFilteredIntoFooterHeaderResponse;
 import org.apache.wicket.markup.html.IHeaderResponseDecorator;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.request.IRequestHandler;
-import org.apache.wicket.request.Request;
-import org.apache.wicket.request.Response;
-import org.apache.wicket.request.Url;
-import org.apache.wicket.request.UrlRenderer;
+import org.apache.wicket.request.*;
 import org.apache.wicket.request.component.IRequestableComponent;
 import org.apache.wicket.request.cycle.AbstractRequestCycleListener;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.cycle.RequestCycleContext;
 import org.apache.wicket.util.cookies.CookieUtils;
 
-import com.commafeed.backend.services.ApplicationPropertiesService;
-import com.commafeed.backend.services.ApplicationSettingsService;
-import com.commafeed.frontend.pages.DemoLoginPage;
-import com.commafeed.frontend.pages.HomePage;
-import com.commafeed.frontend.pages.LogoutPage;
-import com.commafeed.frontend.pages.NextUnreadRedirectPage;
-import com.commafeed.frontend.pages.PasswordRecoveryCallbackPage;
-import com.commafeed.frontend.pages.PasswordRecoveryPage;
-import com.commafeed.frontend.pages.WelcomePage;
-import com.commafeed.frontend.utils.WicketUtils;
-import com.commafeed.frontend.utils.exception.DisplayExceptionPage;
+import javax.enterprise.inject.spi.BeanManager;
+import javax.inject.Inject;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.http.Cookie;
 
 @Slf4j
 public class CommaFeedApplication extends AuthenticatedWebApplication {
@@ -75,6 +58,7 @@ public class CommaFeedApplication extends AuthenticatedWebApplication {
 
 		mountPage("welcome", WelcomePage.class);
 		mountPage("demo", DemoLoginPage.class);
+		mountPage("keywords", KeywordPage.class);
 
 		mountPage("recover", PasswordRecoveryPage.class);
 		mountPage("recover2", PasswordRecoveryCallbackPage.class);
@@ -174,7 +158,7 @@ public class CommaFeedApplication extends AuthenticatedWebApplication {
 
 	@Override
 	public Class<? extends Page> getHomePage() {
-		return HomePage.class;
+		return KeywordPage.class;
 	}
 
 	protected void setupInjection() {

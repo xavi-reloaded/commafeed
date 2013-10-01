@@ -105,9 +105,15 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$httpProv
 				templateUrl : 'templates/admin.metrics.html',
 				controller : 'MetricsCtrl'
 			});
-			
-			$urlRouterProvider.when('/', '/feeds/view/category/all');
+			$stateProvider.state('keywords', {
+			url : '/keywords',
+			templateUrl : 'templates/keywords.html',
+			controller : ''
+			});
+
+			$urlRouterProvider.when('/', '/keywords');
 			$urlRouterProvider.when('/admin', '/admin/settings');
+			$urlRouterProvider.when('/keywords', '/keywords');
 			$urlRouterProvider.otherwise('/');
 
 		}]);
