@@ -113,7 +113,6 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$httpProv
 
 			$urlRouterProvider.when('/', '/keywords');
 			$urlRouterProvider.when('/admin', '/admin/settings');
-			$urlRouterProvider.when('/keywords', '/keywords');
 			$urlRouterProvider.otherwise('/');
 
 		}]);
