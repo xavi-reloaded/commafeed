@@ -1,9 +1,15 @@
+
+
+
+
+
 <div id="aula-trainning" ng-init="onInit()">
     <div class="view">
         <ul id="timeline" style="top: -{{screenOnFront}}%;">
             <li>
                 <!--<button class="btn btn-mini btn-inverse" ng-click="back(1)"><i class="icon-arrow-up icon-white"></i>PREVIOUS ACTIVITY</button>-->
-                <div class="top">
+                <div class="top text-right">
+                    <div ng-include="'templates/_toolbar.html'"></div>
                 </div>
                 <div class="activity-container">
                     <form class="form-inline text-center">
