@@ -115,4 +115,14 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$httpProv
 			$urlRouterProvider.when('/admin', '/admin/settings');
 			$urlRouterProvider.otherwise('/');
 
+            $httpProvider.defaults.useXDomain = true;
+            $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+            $httpProvider.defaults.transformRequest = function(data){
+                if (data === undefined) {
+                    return data;
+                }
+                return $.param(data);
+            };
+            delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 		}]);

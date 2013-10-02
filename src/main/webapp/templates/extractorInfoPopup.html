@@ -1,0 +1,35 @@
+<div modal="infoPopupOpen" close="onCloseInfoPopup()" options="opts">
+    <div>
+        <div class="modal-header">
+            <h2 id="myModalLabel">processing...</h2>
+        </div>
+        <div class="modal-body">
+            <div ng-show="!manuallyInsertedText">
+                <div class="muted" ng-show="!htmlResponse">
+                    <h3><em>downloading web content</em></h3>
+                </div>
+                <div class="text-success" ng-show="htmlResponse">
+                    <h3><strong>web content downloaded</strong></h3>
+                </div>
+            </div>
+            <div class="text-success" ng-show="manuallyInsertedText">
+                <h3><strong>manually inserted text processed</strong></h3>
+            </div>
+            <div collapse="analyzing()">
+                <div class="muted" ng-show="!analyzeResponse">
+                    <h3><em>analyzing data</em></h3>
+                </div>
+                <div class="text-success" ng-show="analyzeResponse">
+                    <h3>analysis done</h3>
+                </div>
+            </div>
+            <div collapse="!error">
+                <p>error</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!--<button type="button" class="btn btn-inverse" ng-click="onCancelInfoPopup()">cancel</button>-->
+            <p class="muted">Please wait a bit...</p>
+        </div>
+    </div>
+</div>

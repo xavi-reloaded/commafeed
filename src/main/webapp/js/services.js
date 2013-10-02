@@ -34,7 +34,8 @@ module.factory('ProfileService', ['$resource', function($resource) {
 }]);
 
 module.factory('SettingsService', ['$resource', function($resource) {
-	var res = $resource('rest/user/settings');
+
+    var res = $resource('rest/user/settings');
 
 	var s = {};
 	s.settings = {};
