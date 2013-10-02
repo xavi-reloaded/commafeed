@@ -108,7 +108,7 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$httpProv
 			$stateProvider.state('keywords', {
 			url : '/keywords',
 			templateUrl : 'templates/keywords.html',
-			controller : ''
+			controller : 'KeywordsController'
 			});
 
 			$urlRouterProvider.when('/', '/keywords');

@@ -350,7 +350,7 @@ module.directive('uiEpicEditor', function() {
 
             var opts = {
                 container: element.get(0), // raw element or ID
-                basePath: 'lib/epiceditor/assets/', // from js file epiceditor.js
+                basePath: 'js/epiceditor/assets/', // from js file epiceditor.js
                 file:{
                     autoSave:true
                 },

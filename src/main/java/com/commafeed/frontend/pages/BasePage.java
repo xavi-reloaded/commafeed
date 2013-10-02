@@ -111,6 +111,11 @@ public abstract class BasePage extends WebPage {
 			response.render(CssHeaderItem.forUrl("wro/lib.css"));
 			response.render(CssHeaderItem.forUrl("wro/app.css"));
 
+			response.render(JavaScriptHeaderItem.forUrl("js/epiceditor/assets/js/epiceditor.js"));
+			response.render(JavaScriptHeaderItem.forUrl("js/epiceditor/assets/js/keywordParser.js"));
+			response.render(JavaScriptHeaderItem.forUrl("js/extractor/views/ExtractorView.js"));
+			response.render(JavaScriptHeaderItem.forUrl("js/extractor/models/ExtractorModel.js"));
+
 			response.render(JavaScriptHeaderItem.forUrl("js/welcome.js"));
 			response.render(JavaScriptHeaderItem.forUrl("js/main.js"));
 			response.render(JavaScriptHeaderItem.forUrl("js/controllers.js"));

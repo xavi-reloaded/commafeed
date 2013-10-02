@@ -322,3 +322,42 @@ module.factory('ServerService', ['$resource', function($resource) {
 	var res = $resource('rest/server/get');
 	return res;
 }]);
+
+
+module.factory('BaseUrl', ['$location', function($location){
+    var locationHost=$location.host();
+    var url = '';
+    return {
+        getBaseUrl: function(){
+            if(locationHost.indexOf('localhost')!=-1 || locationHost == '54.213.142.98'){
+                url = 'http://54.213.142.98';
+            }
+            else {
+                url = 'http://54.213.142.98';
+            }
+            return url;
+        }
+    };
+}]);
+
+module.factory('SimpleDomains', ['$resource','BaseUrl','$http', function($resource, BaseUrl,$http){
+        var serverUrl = BaseUrl.getBaseUrl()+':80/ws/:service/get:domain/:token';
+        $http.defaults.useXDomain = true;
+        return $resource(serverUrl, {}, {
+            getLanguages: {method:'GET', data: {service: 'languageService.php', domain: 'Languages'},headers: [{'Content-Type': 'application/json'},{'Access-Control-Allow-Origin': '*'}], isArray:false}
+        });
+}]);
+
+module.factory('AnalyzerService', ['$resource','BaseUrl', function($resource,BaseUrl){
+        var serverUrl = BaseUrl.getBaseUrl()+':port/PLNEngine/service/plnKeywordService';
+        return $resource(serverUrl, {port:':8080'}, {
+            getAnalysis: {method: 'POST', isArray:true}
+        });
+}]);
+
+module.factory('HtmlCleanerService',['$resource','BaseUrl', function($resource,BaseUrl){
+        var serverUrl = BaseUrl.getBaseUrl()+':port/PLNEngine/service/plnWgetService';
+        return $resource(serverUrl, {port:':8080'}, {
+            getHtmlText: {method: 'POST', isArray:false}
+        });
+}]);

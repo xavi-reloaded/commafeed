@@ -16,7 +16,7 @@
 		<js minimize="false">/vendor/nginfinitescroll/*.js</js>
 		<js minimize="false">/vendor/spinjs/*.js</js>
 		<js minimize="false">/vendor/momentjs/*.js</js>
-		<js minimize="false">/vendor/epiceditor/assets/js/*.js</js>
+		<!--<js minimize="false">/vendor/epiceditor/assets/js/*.js</js>-->
 
 		<css minimize="false">/vendor/bootstrap/*.css</css>
 		<css minimize="false">/vendor/angularui/*.css</css>
