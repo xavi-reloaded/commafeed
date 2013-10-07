@@ -484,8 +484,8 @@
     _insertCSSLink(self.settings.basePath + self.settings.theme.preview, self.previewerIframeDocument);
     //TODO: remove bootstrap and use self made style
     _insertCSSLink(self.settings.basePath +          'js/style.css', self.previewerIframeDocument);
+      _insertJavascriptLink(self.settings.basePath + 'js/jquery-1.10.2.min.js',self.previewerIframeDocument);
       _insertJavascriptLink(self.settings.basePath + 'js/keywordInclude.js',self.previewerIframeDocument);
-      _insertJavascriptLink(self.settings.basePath + 'js/jquery.js',self.previewerIframeDocument);
 
 
 

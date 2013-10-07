@@ -2,7 +2,7 @@
 <groups xmlns="http://www.isdc.ro/wro">
 
 	<group name="lib">
-		<js minimize="false">/vendor/jquery/*.js</js>
+		<js minimize="false">/vendor/jquery/jquery-1.10.2.js</js>
 		<js minimize="false">/vendor/lodash/*.js</js>
 		<js minimize="false">/vendor/jqueryui/*.js</js>
 		<js minimize="false">/vendor/jquery-mousewheel/*.js</js>
