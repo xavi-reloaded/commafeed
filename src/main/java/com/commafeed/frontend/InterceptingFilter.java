@@ -1,15 +1,9 @@
 package com.commafeed.frontend;
 
-import java.io.IOException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @WebFilter(urlPatterns = "/*")
 public class InterceptingFilter implements Filter {
@@ -38,6 +32,7 @@ public class InterceptingFilter implements Filter {
 		resp.addHeader(HEADER_CORS_ALLOW_CREDENTIALS, HEADER_CORS_ALLOW_CREDENTIALS_VALUE);
 
 		resp.addHeader(HEADER_X_UA_COMPATIBLE, HEADER_X_UA_COMPATIBLE_VALUE);
+
 
 		chain.doFilter(request, response);
 	}

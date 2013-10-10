@@ -1,13 +1,12 @@
 package com.commafeed.backend.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.log4j.Level;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import lombok.Getter;
-import lombok.Setter;
-
-import org.apache.log4j.Level;
 
 @Entity
 @Table(name = "APPLICATIONSETTINGS")
@@ -17,7 +16,7 @@ import org.apache.log4j.Level;
 public class ApplicationSettings extends AbstractModel {
 
 	private String publicUrl;
-	private boolean allowRegistrations = false;
+	private boolean allowRegistrations = true;
 	private String googleAnalyticsTrackingCode;
 	private String googleClientId;
 	private String googleClientSecret;

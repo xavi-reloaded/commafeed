@@ -72,7 +72,7 @@ public class StartupBean {
 
 		initSupportedLanguages();
 
-		// start fetching feeds
+		// start fetching feeds (not yet !)
 		taskGiver.start();
 	}
 
@@ -99,12 +99,13 @@ public class StartupBean {
 		log.info("Populating database with default values");
 
 		ApplicationSettings settings = new ApplicationSettings();
-		settings.setAnnouncement("Set the Public URL in the admin section!");
+		settings.setAnnouncement("You are Your Keyword");
+        settings.setPublicUrl("http://localhost:8082/commafeed");
 		applicationSettingsService.save(settings);
 
 		try {
-			userService.register(USERNAME_ADMIN, "admin", "admin@commafeed.com", Arrays.asList(Role.ADMIN, Role.USER), true);
-			userService.register(USERNAME_DEMO, "demo", "demo@commafeed.com", Arrays.asList(Role.USER), true);
+			userService.register(USERNAME_ADMIN, "admin", "admin@youkeyword.com", Arrays.asList(Role.ADMIN, Role.USER), true);
+			userService.register(USERNAME_DEMO, "demo", "demo@youkeyword.com", Arrays.asList(Role.USER), true);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
