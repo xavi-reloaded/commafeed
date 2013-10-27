@@ -533,13 +533,13 @@ module.controller('ToolbarCtrl', [
             $location.path('admin');
         };
         $scope.toSettings = function() {
-            $state.transitionTo('feeds.settings');
+            $state.transitionTo('youkeyword.settings');
         };
         $scope.toProfile = function() {
-            $state.transitionTo('feeds.profile');
+            $state.transitionTo('youkeyword.profile');
         };
         $scope.toHelp = function() {
-            $state.transitionTo('feeds.help');
+            $state.transitionTo('youkeyword.help');
         };
         $scope.toDonate = function() {
             AnalyticsService.track('/donate');

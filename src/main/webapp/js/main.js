@@ -54,17 +54,17 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$httpProv
 				templateUrl : 'templates/feeds.category_details.html',
 				controller : 'CategoryDetailsCtrl'
 			});
-			$stateProvider.state('feeds.help', {
+			$stateProvider.state('youkeyword.help', {
 				url : '/help',
 				templateUrl : 'templates/feeds.help.html',
 				controller : 'HelpController'
 			});
-			$stateProvider.state('feeds.settings', {
+			$stateProvider.state('youkeyword.settings', {
 				url : '/settings',
 				templateUrl : 'templates/settings.html',
 				controller : 'SettingsCtrl'
 			});
-			$stateProvider.state('feeds.profile', {
+			$stateProvider.state('youkeyword.profile', {
 				url : '/profile',
 				templateUrl : 'templates/profile.html',
 				controller : 'ProfileCtrl'

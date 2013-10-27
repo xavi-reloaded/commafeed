@@ -100,7 +100,7 @@ public class StartupBean {
 
 		ApplicationSettings settings = new ApplicationSettings();
 		settings.setAnnouncement("You are Your Keyword");
-        settings.setPublicUrl("http://localhost:8082/commafeed");
+        settings.setPublicUrl("http://localhost:8082/youkeyword");
 		applicationSettingsService.save(settings);
 
 		try {
